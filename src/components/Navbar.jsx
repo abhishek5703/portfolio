@@ -43,7 +43,7 @@ const Navbar = () => {
             <button
               key={item}
               onClick={() => scrollTo(item === "home" ? "hero" : item)}
-              className="text-sm uppercase font-medium text-neutral-300 hover:text-teal-400 hover:scale-105 transition-all duration-200 ease-in-out relative group"
+              className="text-sm uppercase font-medium text-neutral-300 hover:text-teal-400 hover:scale-105 transition-all duration-200 ease-in-out relative group cursor-pointer"
             >
               {item}
               <span className="absolute left-0 bottom-[-2px] w-0 h-0.5 bg-teal-400 transition-all group-hover:w-full"></span>
