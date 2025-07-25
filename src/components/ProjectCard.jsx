@@ -23,9 +23,9 @@ const ProjectCard = ({ title, description, techStack, github, demo, image }) => 
           {title}
         </h3>
 
-        <p className="text-zinc-300 text-base leading-relaxed mb-4">
+        <div className="text-zinc-300 text-sm leading-relaxed mb-4">
           {description}
-        </p>
+        </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {techStack.map((tech, idx) => (
@@ -38,7 +38,7 @@ const ProjectCard = ({ title, description, techStack, github, demo, image }) => 
           ))}
         </div>
 
-        <div className="flex items-center gap-6 mt-2">
+        <div className="flex items-center gap-6 mt-2 flex-wrap">
           {github && (
             <a
               href={github}
