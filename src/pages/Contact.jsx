@@ -18,6 +18,9 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const submittedData = formData; // preserve values for sending
+    setFormData({ name: "", email: "", message: "" }); // clear immediately
+
     try {
       const res = await fetch("https://formspree.io/f/xjkowyoy", {
         method: "POST",
@@ -25,14 +28,13 @@ const Contact = () => {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submittedData),
       });
 
       const data = await res.json();
 
       if (res.ok) {
         toast.success("🚀 Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
       } else {
         toast.error(data.error || "Something went wrong.");
       }
@@ -40,6 +42,7 @@ const Contact = () => {
       toast.error("Failed to send message. Please try again later.");
     }
   };
+
 
   return (
     <div
