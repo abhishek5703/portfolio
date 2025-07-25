@@ -50,7 +50,7 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="min-h-screen px-6 py-16 bg-zinc-100 dark:bg-zinc-950">
-      <h1 className="text-4xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-400">
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-300 drop-shadow-[0_1.2px_1.2px_rgba(0,255,255,0.6)] font-[Orbitron]">
         Featured Projects
       </h1>
 
