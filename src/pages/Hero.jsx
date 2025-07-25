@@ -1,69 +1,79 @@
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  FileCode,
-  Paintbrush,
-  CodeSquare,
-  Atom,
-  Server,
-  Database,
-  GitBranch,
-} from "lucide-react";
+import Typewriter from "typewriter-effect";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import myImg from "/abhishek.png";
 
-const tech = [
-  { name: "HTML", icon: <FileCode className="text-orange-500 w-6 h-6" /> },
-  { name: "CSS", icon: <Paintbrush className="text-blue-500 w-6 h-6" /> },
-  { name: "JavaScript", icon: <CodeSquare className="text-yellow-400 w-6 h-6" /> },
-  { name: "React", icon: <Atom className="text-cyan-400 w-6 h-6" /> },
-  { name: "Node.js", icon: <Server className="text-green-600 w-6 h-6" /> },
-  { name: "MongoDB", icon: <Database className="text-emerald-600 w-6 h-6" /> },
-  { name: "Git", icon: <GitBranch className="text-red-500 w-6 h-6" /> },
-];
-
-const About = () => {
+const Hero = () => {
   return (
-    <section id="about" className="py-24 px-6 bg-black text-white">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto text-center"
-      >
-        <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-600 animate-shimmer">
-          About Me
-        </h2>
+    <div
+      id="hero"
+      className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex flex-col items-center justify-center text-white px-6 py-16 overflow-hidden"
+    >
+      {/* Glowing Background Circles */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-400 opacity-20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse" />
 
-        <p className="mt-6 text-lg md:text-xl font-medium text-gray-300 max-w-3xl mx-auto font-mono animate-typing overflow-hidden whitespace-nowrap border-r-2 border-teal-400">
-          I'm Abhishek Kumar, a 3rd year B.Tech student at NSUT, passionate about full-stack web development, problem solving, and building real-world products.
-        </p>
+      {/* Typewriter Heading */}
+      <h1 className="text-4xl md:text-6xl font-bold text-center mb-6 text-cyan-400 animate-fade-in-up">
+        <Typewriter
+          options={{
+            strings: [
+              "Hi, I'm Abhishek Kumar",
+              "Full Stack Web Developer",
+              "Welcome to My Portfolio",
+            ],
+            autoStart: true,
+            loop: true,
+            delay: 60,
+            deleteSpeed: 40,
+          }}
+        />
+      </h1>
 
-        <p className="mt-6 text-base md:text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
-          My toolkit includes <span className="text-teal-400 font-semibold">HTML</span>, <span className="text-blue-400 font-semibold">CSS</span>, <span className="text-yellow-300 font-semibold">JavaScript</span>, <span className="text-cyan-400 font-semibold">React</span>, <span className="text-green-400 font-semibold">Node.js</span>, <span className="text-emerald-400 font-semibold">Express</span>, and databases like <span className="text-green-500 font-semibold">MongoDB</span> & <span className="text-blue-300 font-semibold">MySQL</span>. I'm also proficient in C++, Python, Git, GitHub, Vercel, Render, and Cloudinary.
-        </p>
+      {/* Subheading */}
+      <p className="text-lg md:text-xl text-center text-gray-300 mb-10 max-w-2xl animate-fade-in-up delay-100">
+        I’m a passionate Full Stack Web Developer and a 3rd year B.Tech student at
+        <span className="text-cyan-400 font-medium"> Netaji Subhas University of Technology</span>.
+        I’ve built several projects that blend functionality with aesthetics.
+      </p>
 
-        <h3 className="mt-16 text-2xl md:text-3xl font-bold text-teal-400 shimmer-text">
-          Tech Stack I Work With
-        </h3>
+      {/* Image Card with Glow and Glassmorphism */}
+      <div className="relative group mb-16 animate-fade-in-up delay-200">
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 blur-xl opacity-60 group-hover:opacity-100 transition duration-1000 animate-spin-slow"></div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-8">
-          {tech.map((t, index) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center gap-2 bg-neutral-900 hover:scale-105 transition-transform p-4 rounded-2xl shadow-md shadow-cyan-700/20"
-            >
-              <div>{t.icon}</div>
-              <span className="text-sm text-gray-300">{t.name}</span>
-            </motion.div>
-          ))}
+        <div className="relative w-64 h-64 p-1 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl overflow-hidden">
+          <img
+            src={myImg}
+            alt="Abhishek Kumar"
+            className="w-full h-full object-cover rounded-full"
+          />
         </div>
-      </motion.div>
-    </section>
+
+        {/* Floating Social Icons */}
+        <div className="absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 flex gap-6 text-xl text-cyan-400">
+          <a href="https://github.com/abhishek5703" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition">
+            <FaGithub />
+          </a>
+          <a href="https://www.linkedin.com/in/abhishekkumar8983/" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition">
+            <FaLinkedin />
+          </a>
+          <a href="mailto:abhikumar898307@gmail.com" className="hover:scale-125 transition">
+            <FaEnvelope />
+          </a>
+        </div>
+      </div>
+
+      {/* CTA Button with Hover Effects */}
+      <button
+        onClick={() => {
+          document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="bg-gradient-to-r from-cyan-600 to-blue-500 hover:from-cyan-500 hover:to-indigo-500 text-white font-semibold py-3 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-fade-in-up delay-300 cursor-pointer"
+      >
+        Let’s Connect 
+      </button>
+    </div>
   );
 };
 
-export default About;
+export default Hero;
