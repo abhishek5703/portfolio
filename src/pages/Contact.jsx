@@ -1,49 +1,54 @@
-import React from 'react';
+import React from "react";
 
 const Contact = () => {
   return (
-    <div id="contact" className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-16 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-6 text-center text-cyan-400">
-          Contact Me
+    <div
+      id="contact"
+      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6"
+    >
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-5xl font-extrabold text-center text-cyan-400 drop-shadow-lg tracking-wide mb-4">
+          Let's Connect
         </h2>
-        <p className="text-center mb-12 text-gray-300">
-          Feel free to reach out for collaborations, opportunities, or just to say hi! 👋
+        <p className="text-center mb-12 text-gray-400 text-lg font-light">
+          Open to freelance, full-time roles, and collaborations. Drop me a message! ✨
         </p>
 
         <form
-          action="https://formspree.io/f/your_form_id" // replace with your Formspree ID
+          action="https://formspree.io/f/your_form_id" // ← replace this
           method="POST"
-          className="bg-gray-800 rounded-2xl p-8 shadow-lg"
+          className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-10 shadow-[0_0_20px_#0ff4] transition duration-300"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               required
-              className="p-4 rounded-xl bg-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-500"
+              className="bg-transparent border border-cyan-500/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 transition-all"
             />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
               required
-              className="p-4 rounded-xl bg-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-500"
+              className="bg-transparent border border-cyan-500/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 transition-all"
             />
           </div>
+
           <textarea
             name="message"
             placeholder="Your Message"
-            rows="5"
+            rows="6"
             required
-            className="w-full mt-6 p-4 rounded-xl bg-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-500"
+            className="w-full mt-8 bg-transparent border border-cyan-500/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 transition-all"
           ></textarea>
+
           <button
             type="submit"
-            className="mt-6 w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition duration-300"
+            className="w-full mt-8 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:to-pink-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Send Message 🚀
+            🚀 Send Message
           </button>
         </form>
       </div>
