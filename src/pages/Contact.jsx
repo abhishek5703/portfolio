@@ -1,6 +1,11 @@
 import React from "react";
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
+  const handleSubmit = () => {
+    toast.success("🚀 Message sent successfully!");
+  };
+
   return (
     <div
       id="contact"
@@ -15,10 +20,14 @@ const Contact = () => {
         </p>
 
         <form
-          action="https://formspree.io/f/your_form_id" // ← replace this
+          action="https://formspree.io/f/xjkowyoy" // 🔁 Replace with your real Formspree ID
           method="POST"
+          onSubmit={handleSubmit}
           className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-10 shadow-[0_0_20px_#0ff4] transition duration-300"
         >
+          {/* Reply-to support */}
+          <input type="hidden" name="_replyto" />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <input
               type="text"
