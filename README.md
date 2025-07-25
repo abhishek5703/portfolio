@@ -1,12 +1,111 @@
-# React + Vite
+# Abhishek Kumar | Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal developer portfolio built using **React + Vite** and deployed with **Netlify**. This site showcases my projects, skills, and a dynamic contact form powered by **EmailJS**.
 
-Currently, two official plugins are available:
+## 🔗 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 [Visit Portfolio](https://portfolio8983.netlify.app/)  
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React (Vite)
+- 💨 Tailwind CSS
+- 📩 EmailJS (for contact form)
+- 🌐 Netlify (hosting)
+- 🎨 Custom Favicon (neon, cyan-themed `</>` icon)
+
+---
+
+## 📁 Folder Structure
+```bash
+my-portfolio/
+├── public/
+│ ├── favicon.png
+│ └── vite.svg
+├── src/
+│ ├── components/
+│ ├── pages/
+│ └── main.jsx
+├── index.html
+└── README.md
+```
+
+
+---
+
+## ✨ Features
+
+- 💼 Project Showcase Cards
+- 📱 Responsive Design
+- 📬 Contact Form with EmailJS
+- 🌓 Light/Dark Mode Toggle
+- 🖼️ Custom Neon-themed Favicon
+- 🔍 Smooth section navigation
+
+---
+
+## 📬 Contact Form
+
+Powered by **EmailJS**, the form sends messages directly to your inbox.
+
+### 🔒 Important:
+To avoid emails going to **spam**, ensure:
+- You verify your EmailJS sender email.
+- Use proper subject lines and include a recognizable sender name.
+- Consider upgrading EmailJS for verified domains if used professionally.
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start development server:
+
+bash
+```
+npm run dev
+```
+
+4. Build for production:
+
+bash
+```
+npm run build
+```
+## 📸 Preview
+
+![Portfolio Preview ](/demo1.png)
+
+![Portfolio Preview ](/demo2.png)
+
+![Portfolio Preview ](/demo3.png)
+
+![Portfolio Preview ](/demo4.png)
+
+
+## 💬 Contact the Developer
+📧 Email: abhikumar898307@gmail.com
+
+🔗 LinkedIn: https://www.linkedin.com/in/abhishekkumar8983/
+
+🐙 GitHub: https://github.com/abhishek5703
+
+Feel free to connect, collaborate, or drop any feedback!
+
+
+
