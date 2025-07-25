@@ -1,4 +1,3 @@
-// src/components/Projects.jsx
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
 

@@ -18,8 +18,8 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const submittedData = formData; // preserve values for sending
-    setFormData({ name: "", email: "", message: "" }); // clear immediately
+    const submittedData = formData; 
+    setFormData({ name: "", email: "", message: "" }); 
 
     try {
       const res = await fetch("https://formspree.io/f/xjkowyoy", {
@@ -34,7 +34,7 @@ const Contact = () => {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("🚀 Message sent successfully!");
+        toast.success("Message sent successfully!");
       } else {
         toast.error(data.error || "Something went wrong.");
       }
@@ -96,7 +96,7 @@ const Contact = () => {
             type="submit"
             className="w-full mt-8 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:to-pink-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
           >
-            🚀 Send Message
+            Send Message
           </button>
         </form>
       </div>
