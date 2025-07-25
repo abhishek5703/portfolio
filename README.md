@@ -87,15 +87,17 @@ bash
 ```
 npm run build
 ```
+
 ## 📸 Preview
 
-![Portfolio Preview ](/demo1.png)
+![Portfolio Preview](public/demo1.png)
 
-![Portfolio Preview ](/demo2.png)
+![Portfolio Preview](public/demo2.png)
 
-![Portfolio Preview ](/demo3.png)
+![Portfolio Preview](public/demo3.png)
 
-![Portfolio Preview ](/demo4.png)
+![Portfolio Preview](public/demo4.png)
+
 
 
 ## 💬 Contact the Developer
