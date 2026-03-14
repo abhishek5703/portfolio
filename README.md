@@ -90,12 +90,16 @@ npm run build
 
 ## 📸 Preview
 
+### 🖥️ Home Page
 ![Portfolio Preview](public/demo1.png)
 
+### 📂 About Section
 ![Portfolio Preview](public/demo2.png)
 
+### 📱 project Section
 ![Portfolio Preview](public/demo3.png)
 
+### 📧 Contact Section
 ![Portfolio Preview](public/demo4.png)
 
 
