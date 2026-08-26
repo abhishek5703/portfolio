@@ -47,7 +47,7 @@ const About = () => {
           <span className="font-bold text-black dark:text-white font-pacifico text-xl">
             Abhishek Kumar
           </span>
-          , a 3rd-year B.Tech student at{" "}
+          , a Final Year B.Tech student at{" "}
           <span className="text-teal-600 dark:text-teal-400 font-semibold">
             NSUT, Delhi
           </span>{" "}
