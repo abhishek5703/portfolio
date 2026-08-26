@@ -32,7 +32,7 @@ const Hero = () => {
 
       {/* Subheading */}
       <p className="text-lg md:text-xl text-center text-gray-300 mb-10 max-w-2xl animate-fade-in-up delay-100">
-        I’m a passionate Full Stack Web Developer and a 3rd year B.Tech student at
+        I’m a passionate Full Stack Web Developer and a Final Year B.Tech student at
         <span className="text-cyan-400 font-medium"> Netaji Subhas University of Technology</span>.
         I’ve built several projects that blend functionality with aesthetics.
       </p>
