@@ -1,70 +1,28 @@
 import React from "react";
-import { Github, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
-const ProjectCard = ({ title, description, techStack, github, demo, image }) => {
-  return (
-    <div className="flex flex-col md:flex-row gap-6 items-center w-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/10 dark:border-zinc-800 rounded-2xl shadow-2xl p-6 group hover:ring-2 hover:ring-cyan-400/50 transition-all duration-300">
-
-      {/* Left Image */}
-      {image && (
-        <div className="w-full md:w-2/5 rounded-xl overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-      )}
-
-      {/* Right Content */}
-      <div className="w-full md:w-3/5 text-left">
-        <h3 className="text-3xl font-bold text-white mb-2 tracking-wide font-[Orbitron]">
-          {title}
-        </h3>
-
-        <div className="text-zinc-300 text-sm leading-relaxed mb-4">
-          {description}
-        </div>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {techStack.map((tech, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 text-xs rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/20 backdrop-blur-sm"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-6 mt-2 flex-wrap">
-          {github && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-cyan-300 hover:text-white transition"
-            >
-              <Github size={20} />
-              <span className="text-sm font-medium">GitHub</span>
-            </a>
-          )}
-
-          {demo && (
-            <a
-              href={demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-cyan-300 hover:text-white transition"
-            >
-              <ExternalLink size={20} />
-              <span className="text-sm font-medium">Live Demo</span>
-            </a>
-          )}
+const ProjectCard = ({ number, title, subtitle, description, highlights, techStack, github, demo, image }) => (
+  <motion.article initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .6 }} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b0b0b] shadow-2xl shadow-black/30">
+    <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/[0.035] via-transparent to-violet-500/[0.035] opacity-0 transition duration-500 group-hover:opacity-100" />
+    <div className="grid lg:grid-cols-[1.03fr_.97fr]">
+      <div className="relative min-h-[280px] overflow-hidden bg-black lg:min-h-[480px]">
+        <div className="absolute left-6 top-6 z-10 rounded-full border border-white/10 bg-black/65 px-3 py-1.5 text-xs font-bold text-zinc-300 backdrop-blur">{number}</div>
+        <img src={image} alt={`${title} preview`} className="h-full w-full object-cover object-top opacity-90 transition duration-700 group-hover:scale-[1.035] group-hover:opacity-100" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent" />
+      </div>
+      <div className="relative flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+        <p className="text-xs font-bold tracking-[0.2em] text-cyan-300/80">{subtitle}</p>
+        <h3 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{title}</h3>
+        <p className="mt-5 text-sm leading-7 text-zinc-400">{description}</p>
+        <ul className="mt-6 space-y-3 text-sm leading-6 text-zinc-300">{highlights.map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />{item}</li>)}</ul>
+        <div className="mt-7 flex flex-wrap gap-2">{techStack.map((tech) => <span key={tech} className="rounded-full border border-white/8 bg-white/[0.035] px-3 py-1.5 text-[11px] font-medium text-zinc-400">{tech}</span>)}</div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={github} target="_blank" rel="noreferrer" className="group/btn flex items-center gap-2 rounded-full border border-white/10 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/5"> <Github size={16} /> Source <ArrowUpRight size={14} className="transition group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" /></a>
+          <a href={demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-black transition hover:bg-cyan-200">Live product <ArrowUpRight size={15} /></a>
         </div>
       </div>
     </div>
-  );
-};
-
+  </motion.article>
+);
 export default ProjectCard;

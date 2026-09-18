@@ -1,92 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FileCode, Paintbrush, CodeSquare, Atom, Server, Database, GitBranch,
-  Terminal, Feather, Settings2, Network, Github, Cloud, PackageSearch
-} from "lucide-react";
+import { BrainCircuit, Code2, Database, GitBranch, Globe2, Layers3, Server, Trophy } from "lucide-react";
 
-const tech = [
-  { name: "HTML", icon: <FileCode className="text-orange-500 w-6 h-6" /> },
-  { name: "CSS", icon: <Paintbrush className="text-blue-500 w-6 h-6" /> },
-  { name: "JavaScript", icon: <CodeSquare className="text-yellow-400 w-6 h-6" /> },
-  { name: "C++", icon: <Terminal className="text-gray-400 w-6 h-6" /> },
-  { name: "Python", icon: <Feather className="text-yellow-500 w-6 h-6" /> },
-  { name: "Tailwind CSS", icon: <Paintbrush className="text-cyan-400 w-6 h-6" /> },
-  { name: "Bootstrap", icon: <Paintbrush className="text-purple-600 w-6 h-6" /> },
-  { name: "Node.js", icon: <Server className="text-green-600 w-6 h-6" /> },
-  { name: "Express.js", icon: <Settings2 className="text-gray-600 w-6 h-6" /> },
-  { name: "REST API", icon: <Network className="text-indigo-500 w-6 h-6" /> },
-  { name: "MongoDB", icon: <Database className="text-emerald-600 w-6 h-6" /> },
-  { name: "MySQL", icon: <Database className="text-blue-800 w-6 h-6" /> },
-  { name: "Git", icon: <GitBranch className="text-red-500 w-6 h-6" /> },
-  { name: "GitHub", icon: <Github className="text-black dark:text-white w-6 h-6" /> },
-  { name: "Vercel", icon: <Cloud className="text-gray-700 w-6 h-6" /> },
-  { name: "Render", icon: <Cloud className="text-purple-700 w-6 h-6" /> },
-  { name: "Cloudinary", icon: <PackageSearch className="text-teal-500 w-6 h-6" /> },
+const groups = [
+  { icon: Code2, title: "Languages", items: "C++ · JavaScript · Python" },
+  { icon: Layers3, title: "Frontend", items: "React · HTML5 · CSS3 · Tailwind · Bootstrap" },
+  { icon: Server, title: "Backend", items: "Node.js · Express · REST APIs · JWT · Firebase Auth" },
+  { icon: Database, title: "Data & Cloud", items: "MongoDB · MySQL · Cloudinary · Vercel · Render" },
+  { icon: BrainCircuit, title: "AI Engineering", items: "RAG · Embeddings · BM25 · RRF · LLM Integration" },
+  { icon: GitBranch, title: "Workflow", items: "Git · GitHub · Postman · Testing · Agile" },
 ];
 
-const About = () => {
-  return (
-    <section
-      id="about"
-      className="py-16 md:py-20 px-4 sm:px-6 bg-white dark:bg-gradient-to-b dark:from-black dark:to-neutral-900"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto text-center"
-      >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-600">
-          About Me
-        </h2>
-
-        <p className="mt-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          Hey there! I'm{" "}
-          <span className="font-bold text-black dark:text-white font-pacifico text-xl">
-            Abhishek Kumar
-          </span>
-          , a Final Year B.Tech student at{" "}
-          <span className="text-teal-600 dark:text-teal-400 font-semibold">
-            NSUT, Delhi
-          </span>{" "}
-          🇮🇳. I’m passionate about building impactful digital experiences and solving real-world problems with clean, efficient code.
-        </p>
-
-        <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          With a solid foundation in both frontend and backend technologies, I craft full-stack solutions using tools like{" "}
-          <span className="text-cyan-500 font-semibold">HTML, CSS, JavaScript, Tailwind, React, Node.js</span> and databases like{" "}
-          <span className="text-emerald-500 font-semibold">MongoDB & MySQL</span>. I love working with cloud platforms like{" "}
-          <span className="text-purple-400 font-semibold">Vercel</span> and{" "}
-          <span className="text-indigo-400 font-semibold">Render</span> to deploy seamless apps.
-        </p>
-
-        <h3 className="mt-12 mb-6 text-xl sm:text-2xl font-semibold text-gray-800 dark:text-white">
-          Tech Stack I Work With
-        </h3>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 place-items-center">
-          {tech.map((t, index) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center gap-2 bg-white/30 dark:bg-white/5 backdrop-blur-md p-3 sm:p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300 border border-gray-200 dark:border-neutral-800 w-full"
-            >
-              <div>{t.icon}</div>
-              <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
-                {t.name}
-              </span>
-            </motion.div>
-          ))}
+const About = () => (
+  <section id="about" className="relative border-y border-white/[0.06] bg-[#080808] px-5 py-24 sm:px-8 lg:px-12">
+    <div className="mx-auto max-w-7xl">
+      <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .6 }}>
+        <div className="section-kicker">01 / ABOUT</div>
+        <div className="mt-5 grid gap-12 lg:grid-cols-[.9fr_1.1fr]">
+          <div><h2 className="section-title">Engineer by mindset. <span className="gradient-text">Builder by choice.</span></h2></div>
+          <div className="space-y-5 text-base leading-8 text-zinc-400">
+            <p>I enjoy turning ambiguous ideas into reliable, polished software — from authentication and APIs to AI retrieval pipelines and responsive interfaces.</p>
+            <p>My current toolkit spans the MERN ecosystem, modern frontend systems, cloud deployment, and practical LLM engineering. I care about architecture, usability, and the small details that make a product feel finished.</p>
+          </div>
         </div>
       </motion.div>
-    </section>
 
-  );
-};
+      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {groups.map(({ icon: Icon, title, items }, i) => (
+          <motion.div key={title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .05 }} className="premium-card group p-6">
+            <div className="mb-6 flex items-center justify-between"><span className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-cyan-200"><Icon size={19} /></span><span className="text-xs text-zinc-600">0{i + 1}</span></div>
+            <h3 className="font-semibold text-white">{title}</h3><p className="mt-2 text-sm leading-6 text-zinc-500 group-hover:text-zinc-400">{items}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="premium-card flex items-center gap-5 p-6"><div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-300/10 text-amber-200"><Trophy size={21} /></div><div><p className="text-2xl font-black text-white">500+</p><p className="text-sm text-zinc-500">LeetCode problems solved · 1500+ contest rating</p></div></div>
+        <div className="premium-card flex items-center gap-5 p-6"><div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-violet-300/10 text-violet-200"><Globe2 size={21} /></div><div><p className="text-2xl font-black text-white">2-Star</p><p className="text-sm text-zinc-500">CodeChef · plus Top 4 finalist in Axis Bank MOVES</p></div></div>
+      </div>
+    </div>
+  </section>
+);
 
 export default About;

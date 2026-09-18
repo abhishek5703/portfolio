@@ -1,79 +1,58 @@
-import React, { useState } from "react";
-import { Code } from "lucide-react"; // optional: use another icon if you prefer
+import React, { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const scrollTo = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const offset = 80;
-      const top = section.getBoundingClientRect().top + window.scrollY - offset;
-
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
 
-  const navItems = ["home", "about", "projects", "contact"];
+  const items = [
+    ["About", "about"],
+    ["Projects", "projects"],
+    ["Contact", "contact"],
+  ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-teal-600/20 shadow-xl">
-      <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo + Name */}
-        <div
-          className="flex items-center gap-2 cursor-pointer"
-          onClick={() => scrollTo("hero")}
-        >
-          <div className="bg-gradient-to-br from-teal-400 to-cyan-500 p-1.5 rounded-lg shadow-md animate-pulse">
-            <Code className="text-white w-5 h-5" />
-          </div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-widest hover:drop-shadow-[0_0_6px_#0ff] transition duration-300">
-            Abhishek Kumar
-          </h1>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "px-3 pt-3" : "px-0 pt-0"}`}>
+      <nav className={`mx-auto flex max-w-7xl items-center justify-between px-5 py-4 transition-all duration-500 md:px-7 ${scrolled ? "rounded-2xl border border-white/10 bg-black/70 shadow-2xl shadow-black/30 backdrop-blur-2xl" : "bg-transparent"}`}>
+        <button onClick={() => scrollTo("hero")} className="group flex items-center gap-3" aria-label="Go to home">
+          <span className="grid h-9 w-9 place-items-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-sm font-black text-cyan-300 shadow-[0_0_25px_rgba(34,211,238,.12)]">AK</span>
+          <span className="hidden text-sm font-semibold tracking-[0.22em] text-white sm:block">ABHISHEK KUMAR</span>
+        </button>
 
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 items-center">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item === "home" ? "hero" : item)}
-              className="text-sm uppercase font-medium text-neutral-300 hover:text-teal-400 hover:scale-105 transition-all duration-200 ease-in-out relative group cursor-pointer"
-            >
-              {item}
-              <span className="absolute left-0 bottom-[-2px] w-0 h-0.5 bg-teal-400 transition-all group-hover:w-full"></span>
+        <div className="hidden items-center gap-8 md:flex">
+          {items.map(([label, id]) => (
+            <button key={id} onClick={() => scrollTo(id)} className="nav-link text-sm text-zinc-400 transition hover:text-white">
+              {label}
             </button>
           ))}
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-neutral-300 text-2xl hover:text-teal-400 transition-all"
-          >
-            ☰
+          <button onClick={() => scrollTo("contact")} className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white transition hover:border-cyan-300/40 hover:bg-cyan-300/10">
+            Let&apos;s talk <ArrowUpRight size={16} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </button>
         </div>
+
+        <button className="rounded-xl border border-white/10 bg-white/5 p-2 text-zinc-200 md:hidden" onClick={() => setMenuOpen((v) => !v)} aria-label="Toggle menu">
+          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+        </button>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#121212]/95 backdrop-blur-md shadow-lg border-t border-neutral-700 px-4 py-4 space-y-3 transition-all duration-300">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item === "home" ? "hero" : item)}
-              className="block w-full text-left text-neutral-300 font-medium text-sm hover:text-teal-400 transition-all"
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </button>
+        <div className="mx-3 mt-2 rounded-2xl border border-white/10 bg-black/90 p-4 shadow-2xl backdrop-blur-2xl md:hidden">
+          {items.map(([label, id]) => (
+            <button key={id} onClick={() => scrollTo(id)} className="block w-full rounded-xl px-3 py-3 text-left text-sm text-zinc-300 hover:bg-white/5 hover:text-white">{label}</button>
           ))}
+          <button onClick={() => scrollTo("contact")} className="mt-2 w-full rounded-xl bg-cyan-300 px-4 py-3 text-sm font-bold text-black">Let&apos;s talk</button>
         </div>
       )}
     </header>

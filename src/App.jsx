@@ -1,6 +1,5 @@
-// File: src/App.jsx
 import React from "react";
-import { Toaster } from "react-hot-toast"; // ✅ import toaster
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./pages/Hero";
@@ -10,17 +9,15 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="bg-white dark:bg-[#0f0f0f] text-black dark:text-white transition-all duration-300">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-cyan-400/30 selection:text-cyan-100">
       <Navbar />
-      <Toaster position="top-right" toastOptions={{ duration: 3000 }} /> 
-
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 mt-20">
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
+      <main>
         <Hero />
         <About />
         <Projects />
         <Contact />
       </main>
-      
       <Footer />
     </div>
   );

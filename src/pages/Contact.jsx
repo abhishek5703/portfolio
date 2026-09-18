@@ -1,107 +1,35 @@
 import React, { useState } from "react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { toast } from "react-hot-toast";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const handleChange = (e) => setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const submittedData = formData; 
-    setFormData({ name: "", email: "", message: "" }); 
-
+    const submittedData = formData;
     try {
-      const res = await fetch("https://formspree.io/f/xjkowyoy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(submittedData),
-      });
-
+      const res = await fetch("https://formspree.io/f/xjkowyoy", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(submittedData) });
       const data = await res.json();
-
-      if (res.ok) {
-        toast.success("Message sent successfully!");
-      } else {
-        toast.error(data.error || "Something went wrong.");
-      }
-    } catch (err) {
-      toast.error("Failed to send message. Please try again later.");
-    }
+      if (res.ok) { toast.success("Message sent successfully!"); setFormData({ name: "", email: "", message: "" }); }
+      else toast.error(data.error || "Something went wrong.");
+    } catch { toast.error("Failed to send message. Please try again later."); }
   };
-
-
   return (
-    <div
-      id="contact"
-      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6"
-    >
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-5xl font-extrabold text-center text-cyan-400 drop-shadow-lg tracking-wide mb-4">
-          Let's Connect
-        </h2>
-        <p className="text-center mb-12 text-gray-400 text-lg font-light">
-          Open to freelance, full-time roles, and collaborations. Drop me a message! ✨
-        </p>
-
-        <form
-          onSubmit={handleSubmit}
-          className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-10 shadow-[0_0_20px_#0ff4] transition duration-300"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="bg-transparent border border-cyan-500/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 transition-all"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="bg-transparent border border-cyan-500/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 transition-all"
-            />
+    <section id="contact" className="border-t border-white/[0.06] bg-[#080808] px-5 py-24 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
+          <div><div className="section-kicker">03 / CONTACT</div><h2 className="section-title mt-5">Have an idea? <span className="gradient-text">Let&apos;s build it.</span></h2><p className="mt-5 max-w-xl text-base leading-7 text-zinc-500">Open to software engineering opportunities, meaningful collaborations, and interesting products. Send a message and let&apos;s start a conversation.</p>
+            <div className="mt-8 space-y-4 text-sm text-zinc-400"><div className="flex items-center gap-3"><Mail size={17} className="text-cyan-300" /> abhikumar898307@gmail.com</div><div className="flex items-center gap-3"><MapPin size={17} className="text-cyan-300" /> West Delhi, India</div></div>
           </div>
-
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="6"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="w-full mt-8 bg-transparent border border-cyan-500/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/80 transition-all"
-          ></textarea>
-
-          <button
-            type="submit"
-            className="w-full mt-8 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:to-pink-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
-          >
-            Send Message
-          </button>
-        </form>
+          <form onSubmit={handleSubmit} className="premium-card p-6 sm:p-8">
+            <div className="grid gap-4 sm:grid-cols-2"><input name="name" value={formData.name} onChange={handleChange} required placeholder="Your name" className="field" /><input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="Email address" className="field" /></div>
+            <textarea name="message" value={formData.message} onChange={handleChange} required rows="7" placeholder="Tell me a little about what you&apos;re working on..." className="field mt-4 resize-none" />
+            <button type="submit" className="group mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-bold text-black transition hover:bg-cyan-200">Send message <ArrowUpRight size={17} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
-
 export default Contact;
