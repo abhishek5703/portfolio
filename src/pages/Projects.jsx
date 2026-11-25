@@ -1,7 +1,3 @@
-
-import React from "react";
-import ProjectCard from "../components/ProjectCard";
-
 const projects = [
   {
     number: "01",
@@ -37,6 +33,40 @@ const projects = [
   },
   {
     number: "02",
+    title: "CareerCraft",
+    subtitle: "CAREER ROADMAPS · LEARNING ANALYTICS · AI ASSISTANT",
+    image: "/careercraft.png",
+    description:
+      "A full-stack career development and learning platform that helps users explore structured technology roadmaps, track learning progress, assess their knowledge through timed quizzes, and get AI-assisted guidance throughout their learning journey.",
+    highlights: [
+      "Built a career-roadmap discovery platform with searchable roadmaps, category-based filtering, structured learning milestones, and curated learning resources.",
+      "Implemented secure authentication using JWT, bcrypt password hashing, and Firebase integration for Google sign-in and password-reset workflows.",
+      "Developed persistent learning-progress tracking using MongoDB, allowing users to mark milestones complete and monitor their progress across roadmaps.",
+      "Created a timed quiz module with 30-second questions, pause/resume functionality, answer reviews, and performance analytics featuring best scores, average scores, and Recharts trend visualizations.",
+      "Integrated a roadmap-aware AI assistant with streaming responses using Server-Sent Events (SSE), supporting Ollama and Google Gemini with automatic provider fallback.",
+    ],
+    techStack: [
+      "React 19",
+      "Vite 7",
+      "Tailwind CSS 4",
+      "Node.js",
+      "Express 5",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "Firebase Auth",
+      "Recharts",
+      "Framer Motion",
+      "Ollama",
+      "Gemini API",
+    ],
+    github:
+      "https://github.com/abhishek5703/careercraft",
+    demo: 
+      "https://career-craft-two.vercel.app/",
+  },
+  {
+    number: "03",
     title: "MatchWise",
     subtitle: "AI RESUME ANALYZER · NLP · JOB MATCHING",
     image: "/matchwise.png",
@@ -64,7 +94,7 @@ const projects = [
       "https://matchwise-resume-analyzer.streamlit.app/",
   },
   {
-    number: "03",
+    number: "04",
     title: "DocMind",
     subtitle: "RAG · DOCUMENT INTELLIGENCE · AI",
     image: "/docmind.png",
@@ -92,34 +122,3 @@ const projects = [
       "https://docmind-lhlh3gybhtrbyxwtiprty2.streamlit.app/",
   },
 ];
-
-const Projects = () => (
-  <section
-    id="projects"
-    className="relative px-5 py-20 sm:px-8 lg:px-12 lg:py-24"
-  >
-    <div className="mx-auto max-w-6xl">
-      <div className="max-w-3xl">
-        <div className="section-kicker">02 / SELECTED WORK</div>
-
-        <h2 className="section-title mt-4">
-          Products, not just <span className="gradient-text">projects.</span>
-        </h2>
-
-        <p className="mt-4 text-sm leading-6 text-zinc-500 sm:text-base sm:leading-7">
-          A focused selection of applications combining full-stack
-          engineering, natural language processing, AI-powered capabilities,
-          and practical problem-solving.
-        </p>
-      </div>
-
-      <div className="mt-10 space-y-6 sm:mt-12 sm:space-y-7">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-export default Projects;

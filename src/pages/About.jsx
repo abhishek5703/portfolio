@@ -35,8 +35,8 @@ const About = () => (
       </div>
 
       <div className="mt-4 grid gap-4 md:grid-cols-2">
-        <div className="premium-card flex items-center gap-5 p-6"><div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-300/10 text-amber-200"><Trophy size={21} /></div><div><p className="text-2xl font-black text-white">500+</p><p className="text-sm text-zinc-500">LeetCode problems solved · 1500+ contest rating</p></div></div>
-        <div className="premium-card flex items-center gap-5 p-6"><div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-violet-300/10 text-violet-200"><Globe2 size={21} /></div><div><p className="text-2xl font-black text-white">2-Star</p><p className="text-sm text-zinc-500">CodeChef · plus Top 4 finalist in Axis Bank MOVES</p></div></div>
+        <div className="premium-card flex items-center gap-5 p-6"><div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-300/10 text-amber-200"><Trophy size={21} /></div><div><p className="text-2xl font-black text-white">550+</p><p className="text-sm text-zinc-500">LeetCode problems solved · 1500+ contest rating</p></div></div>
+        <div className="premium-card flex items-center gap-5 p-6"><div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-violet-300/10 text-violet-200"><Globe2 size={21} /></div><div><p className="text-2xl font-black text-white">3-Star</p><p className="text-sm text-zinc-500">CodeChef · plus Top 4 finalist in Axis Bank MOVES</p></div></div>
       </div>
     </div>
   </section>
