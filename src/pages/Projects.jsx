@@ -1,3 +1,6 @@
+import React from "react";
+import ProjectCard from "../components/ProjectCard";
+
 const projects = [
   {
     number: "01",
@@ -122,3 +125,34 @@ const projects = [
       "https://docmind-lhlh3gybhtrbyxwtiprty2.streamlit.app/",
   },
 ];
+
+const Projects = () => (
+  <section
+    id="projects"
+    className="relative px-5 py-20 sm:px-8 lg:px-12 lg:py-24"
+  >
+    <div className="mx-auto max-w-6xl">
+      <div className="max-w-3xl">
+        <div className="section-kicker">02 / SELECTED WORK</div>
+
+        <h2 className="section-title mt-4">
+          Products, not just <span className="gradient-text">projects.</span>
+        </h2>
+
+        <p className="mt-4 text-sm leading-6 text-zinc-500 sm:text-base sm:leading-7">
+          A focused selection of applications combining full-stack
+          engineering, natural language processing, AI-powered capabilities,
+          and practical problem-solving.
+        </p>
+      </div>
+
+      <div className="mt-10 space-y-6 sm:mt-12 sm:space-y-7">
+        {projects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default Projects;
